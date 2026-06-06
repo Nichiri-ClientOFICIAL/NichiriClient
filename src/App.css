@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -20,50 +21,67 @@ body {
 .app {
     width: 100%;
     min-height: 100vh;
+    background: #050505;
 }
 
 /* NAVBAR */
 
 .navbar {
     width: 100%;
-    height: 72px;
+    height: 78px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 6%;
+    padding: 0 7%;
     position: fixed;
     top: 0;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: white;
 }
 
     .logo span {
-        color: #ff3c00;
+        color: #ff5a00;
     }
 
 .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 34px;
     list-style: none;
 }
 
     .nav-links a {
-        color: #ddd;
+        color: #d6d6d6;
         text-decoration: none;
-        font-size: 0.92rem;
-        transition: 0.2s;
+        font-size: 0.95rem;
+        transition: 0.25s ease;
+        position: relative;
     }
 
         .nav-links a:hover {
             color: white;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #ff5a00;
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
 .nav-buttons {
@@ -71,7 +89,8 @@ body {
     gap: 12px;
 }
 
-/* Buttons common */
+/* BUTTONS */
+
 .login-btn,
 .download-btn,
 .primary-btn,
@@ -83,16 +102,16 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: 0.25s ease;
 }
 
 .login-btn,
 .logout-btn {
     background: transparent;
     color: white;
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 9px 18px;
-    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 10px 20px;
+    border-radius: 12px;
 }
 
     .login-btn:hover,
@@ -103,125 +122,144 @@ body {
 .download-btn,
 .primary-btn,
 .cta-button {
-    background: linear-gradient(135deg, #ff3c00, #ff6a00);
+    background: linear-gradient(135deg, #ff3c00, #ff7300);
     color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 11px 22px;
+    border-radius: 12px;
     font-weight: bold;
+    box-shadow: 0 0 20px rgba(255, 90, 0, 0.18);
 }
 
     .download-btn:hover,
     .primary-btn:hover,
     .cta-button:hover {
         transform: translateY(-2px);
+        box-shadow: 0 0 30px rgba(255, 90, 0, 0.35);
     }
 
 /* HERO */
 
 .hero {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient( rgba(0,0,0,0.82), rgba(0,0,0,0.92) ), url("./public/background.png");
+    background: linear-gradient( rgba(0,0,0,0.78), rgba(0,0,0,0.90) ), url("/background.png");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient( circle at center, rgba(255,80,0,0.08), transparent 60% );
+    background: radial-gradient( circle at center, rgba(255, 80, 0, 0.12), transparent 60% );
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 680px;
+    max-width: 760px;
     padding: 20px;
 }
 
 .hero-mini-title {
     color: #ff6a00;
-    font-size: 0.82rem;
-    letter-spacing: 2px;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
 }
 
 .hero h1 {
-    font-size: 3.2rem;
-    margin-top: 14px;
-    margin-bottom: 18px;
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 800;
 }
 
+    .hero h1 span {
+        color: #ff5a00;
+    }
+
 .hero p {
-    color: #cfcfcf;
-    font-size: 1rem;
-    line-height: 1.7;
+    color: #d0d0d0;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    margin-top: 30px;
+    gap: 18px;
+    margin-top: 36px;
 }
 
 .secondary-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.12);
     color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 11px 22px;
+    border-radius: 12px;
 }
 
     .secondary-btn:hover {
-        background: rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.08);
     }
 
 /* FEATURES */
 
 .features {
-    padding: 90px 6%;
-    background: #090909;
+    padding: 120px 7%;
+    background: #070707;
 }
 
     .features h2 {
         text-align: center;
-        margin-bottom: 50px;
-        font-size: 2rem;
+        margin-bottom: 60px;
+        font-size: 3rem;
     }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
 }
 
 .feature-card {
     background: rgba(255,255,255,0.03);
-    padding: 28px;
-    border-radius: 16px;
+    padding: 32px;
+    border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.2s;
+    transition: 0.25s ease;
+    backdrop-filter: blur(6px);
 }
 
     .feature-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(255,90,0,0.4);
+        transform: translateY(-5px);
+        border-color: rgba(255,90,0,0.45);
+        box-shadow: 0 0 30px rgba(255,90,0,0.08);
     }
 
     .feature-card h3 {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         color: #ff6a00;
+        font-size: 1.4rem;
+    }
+
+    .feature-card p {
+        color: #cfcfcf;
+        line-height: 1.7;
     }
 
 /* STATS */
 
 .stats {
-    padding: 80px 6%;
+    padding: 100px 7%;
     display: flex;
     justify-content: center;
     gap: 24px;
@@ -231,40 +269,52 @@ body {
 
 .stat-card {
     background: rgba(255,255,255,0.03);
-    padding: 30px;
-    border-radius: 16px;
-    min-width: 220px;
+    padding: 35px;
+    border-radius: 20px;
+    min-width: 240px;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.25s ease;
 }
 
+    .stat-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255,90,0,0.3);
+    }
+
     .stat-card h3 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: #ff6a00;
+        margin-bottom: 10px;
+    }
+
+    .stat-card p {
+        color: #cfcfcf;
     }
 
 /* CTA */
 
 .cta-section {
-    padding: 100px 6%;
+    padding: 130px 7%;
     text-align: center;
     background: linear-gradient( 180deg, #0a0a0a, #050505 );
 }
 
     .cta-section h2 {
-        font-size: 2.3rem;
+        font-size: 3rem;
     }
 
     .cta-section p {
-        margin-top: 12px;
+        margin-top: 14px;
         color: #cfcfcf;
+        font-size: 1.05rem;
     }
 
 .cta-button {
-    margin-top: 28px;
+    margin-top: 34px;
 }
 
-/* AUTH OVERLAY */
+/* AUTH */
 
 .auth-overlay {
     position: fixed;
@@ -274,34 +324,34 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
 }
 
 .auth-container {
     width: 92%;
-    max-width: 400px;
-    background: #111;
-    border-radius: 18px;
-    padding: 28px;
+    max-width: 420px;
+    background: #101010;
+    border-radius: 22px;
+    padding: 30px;
     position: relative;
     border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 40px rgba(0,0,0,0.55);
 }
 
 .close-btn {
     position: absolute;
     top: 14px;
     right: 14px;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: rgba(255,255,255,0.05);
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
     .close-btn:hover {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.12);
     }
 
 .auth-nav {
@@ -312,14 +362,14 @@ body {
 
     .auth-nav button {
         flex: 1;
-        padding: 10px;
-        border-radius: 10px;
+        padding: 11px;
+        border-radius: 12px;
         background: rgba(255,255,255,0.04);
         color: white;
     }
 
     .auth-nav .active {
-        background: linear-gradient(135deg, #ff3c00, #ff6a00);
+        background: linear-gradient( 135deg, #ff3c00, #ff7300 );
     }
 
 /* FORM */
@@ -327,7 +377,7 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 15px;
 }
 
     form h2 {
@@ -336,8 +386,8 @@ form {
 
 input {
     width: 100%;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 13px;
+    border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.08);
     background: rgba(255,255,255,0.03);
     color: white;
@@ -349,9 +399,9 @@ input {
     }
 
 form button {
-    padding: 12px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #ff3c00, #ff6a00);
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient( 135deg, #ff3c00, #ff7300 );
     color: white;
     font-weight: bold;
 }
@@ -359,15 +409,15 @@ form button {
 /* DASHBOARD */
 
 .dashboard {
-    margin-top: 90px; /* debajo de navbar */
+    margin-top: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255,255,255,0.02);
-    padding: 40px 20px;
-    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    padding: 42px 24px;
+    border-radius: 20px;
     width: 90%;
-    max-width: 500px;
+    max-width: 520px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -375,25 +425,26 @@ form button {
 }
 
     .dashboard h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         color: #ff6a00;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
     }
 
     .dashboard p {
         color: #cfcfcf;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
 
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
+
     .nav-links {
         display: none;
     }
 
     .hero h1 {
-        font-size: 2.3rem;
+        font-size: 3rem;
     }
 
     .hero-buttons {
@@ -410,3 +461,5 @@ form button {
         padding: 30px 15px;
     }
 }
+
+```
