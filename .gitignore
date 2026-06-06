@@ -45,3 +45,4 @@ Thumbs.db
 
 # Swap files
 *.sw?
+.vercel
