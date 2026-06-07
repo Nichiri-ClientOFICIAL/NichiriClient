@@ -10,47 +10,23 @@ const Register = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
-            setLoading(true);
+            const data = await registerUser(username, email, password);
 
-            const data = await registerUser(
-                username,
-                email,
-                password
-            );
-
-            console.log("User registered:", data);
-
-            // GUARDAR TOKEN
-            if (data.token) {
-                localStorage.setItem(
-                    "token",
-                    data.token
-                );
+            if (data.token && data.user) {
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user));
             }
 
-            // GUARDAR USER
-            localStorage.setItem(
-                "user",
-                JSON.stringify({
-                    username,
-                    email,
-                })
-            );
-
             alert("Registro exitoso!");
-
-            // RECARGAR
             window.location.reload();
 
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-
-            alert(
-                "Error al registrar usuario"
-            );
-
+            const message = error.message || error.error || "Error al registrar usuario";
+            alert(message);
         } finally {
             setLoading(false);
         }
@@ -59,44 +35,29 @@ const Register = () => {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Create Account</h2>
-
             <input
                 type="text"
                 placeholder="Username"
                 value={username}
-                onChange={(e) =>
-                    setUsername(e.target.value)
-                }
+                onChange={(e) => setUsername(e.target.value)}
                 required
             />
-
             <input
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(e) =>
-                    setEmail(e.target.value)
-                }
+                onChange={(e) => setEmail(e.target.value)}
                 required
             />
-
             <input
                 type="password"
                 placeholder="Password"
                 value={password}
-                onChange={(e) =>
-                    setPassword(e.target.value)
-                }
+                onChange={(e) => setPassword(e.target.value)}
                 required
             />
-
-            <button
-                type="submit"
-                disabled={loading}
-            >
-                {loading
-                    ? "Creating account..."
-                    : "Register"}
+            <button type="submit" disabled={loading}>
+                {loading ? "Creating account..." : "Register"}
             </button>
         </form>
     );
