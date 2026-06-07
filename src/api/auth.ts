@@ -6,13 +6,10 @@ const API = axios.create({
 
 // AUTO ATTACH TOKEN
 API.interceptors.request.use((req) => {
-    const token = localStorage.getItem(
-        "token"
-    );
+    const token = localStorage.getItem("token");
 
     if (token && req.headers) {
-        req.headers.Authorization =
-            `Bearer ${token}`;
+        req.headers.Authorization = `Bearer ${token}`;
     }
 
     return req;
@@ -55,15 +52,12 @@ export const loginUser = async (
 // LOGOUT
 export const logoutUser = () => {
     localStorage.removeItem("token");
-
     localStorage.removeItem("user");
 };
 
 // GET USER
 export const getCurrentUser = () => {
-    const user = localStorage.getItem(
-        "user"
-    );
+    const user = localStorage.getItem("user");
 
     return user
         ? JSON.parse(user)

@@ -90,20 +90,21 @@ body {
 
 /* BUTTONS */
 .login-btn,
+.logout-btn,
 .download-btn,
 .primary-btn,
 .secondary-btn,
 .cta-button,
 .auth-nav button,
-.auth-container button,
-.logout-btn {
+.auth-container button {
     border: none;
     outline: none;
     cursor: pointer;
     transition: 0.25s ease;
 }
 
-.login-btn, .logout-btn {
+.login-btn,
+.logout-btn {
     background: rgba(255,255,255,0.03);
     color: white;
     border: 1px solid rgba(255,255,255,0.12);
@@ -111,11 +112,14 @@ body {
     border-radius: 12px;
 }
 
-    .login-btn:hover, .logout-btn:hover {
+    .login-btn:hover,
+    .logout-btn:hover {
         background: rgba(255,255,255,0.08);
     }
 
-.download-btn, .primary-btn, .cta-button {
+.download-btn,
+.primary-btn,
+.cta-button {
     background: linear-gradient(135deg, #ff3c00, #ff7300);
     color: white;
     padding: 11px 24px;
@@ -124,7 +128,9 @@ body {
     box-shadow: 0 0 20px rgba(255,90,0,0.25), 0 0 40px rgba(255,90,0,0.12);
 }
 
-    .download-btn:hover, .primary-btn:hover, .cta-button:hover {
+    .download-btn:hover,
+    .primary-btn:hover,
+    .cta-button:hover {
         transform: translateY(-3px);
         box-shadow: 0 0 30px rgba(255,90,0,0.45), 0 0 60px rgba(255,90,0,0.18);
     }
@@ -400,33 +406,77 @@ form button {
     font-weight: bold;
 }
 
-/* DASHBOARD */
+/* DASHBOARD MODERNO */
 .dashboard {
     margin-top: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: rgba(255,255,255,0.03);
-    padding: 42px 24px;
-    border-radius: 22px;
+    padding: 48px 30px;
+    border-radius: 24px;
     width: 90%;
-    max-width: 520px;
+    max-width: 580px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.06);
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(255,90,0,0.12);
+    transition: 0.3s ease;
 }
 
     .dashboard h2 {
-        font-size: 2.2rem;
-        color: #ff6a00;
-        margin-bottom: 14px;
+        font-size: 2.6rem;
+        color: #ff7300;
+        margin-bottom: 8px;
+        text-shadow: 0 0 10px rgba(255,90,0,0.5);
     }
 
     .dashboard p {
-        color: #cfcfcf;
-        margin-bottom: 10px;
+        color: #d0d0d0;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+
+.user-info-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.user-card {
+    background: rgba(255,255,255,0.04);
+    padding: 18px 24px;
+    border-radius: 16px;
+    min-width: 140px;
+    text-align: center;
+    border: 1px solid rgba(255,90,0,0.15);
+    box-shadow: 0 0 20px rgba(255,90,0,0.08);
+    transition: 0.3s ease;
+}
+
+    .user-card h4 {
+        margin-bottom: 8px;
+        color: #ff5a00;
+    }
+
+    .user-card p {
+        color: #fff;
+    }
+
+.dashboard .download-btn {
+    margin-top: 28px;
+    padding: 12px 26px;
+    font-size: 1rem;
+    box-shadow: 0 0 20px rgba(255,90,0,0.25);
+}
+
+    .dashboard .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 35px rgba(255,90,0,0.45);
     }
 
 /* RESPONSIVE */
@@ -451,5 +501,9 @@ form button {
     .dashboard {
         width: 95%;
         padding: 30px 15px;
+    }
+
+    .user-info-cards {
+        flex-direction: column;
     }
 }
